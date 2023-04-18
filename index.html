@@ -1,0 +1,35 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-COmpatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="style.css">
+        <title>Chatify: Video chat while listening to your favourite songs</title>
+    </head>
+    <body>
+        <div class="loginwithspotify">
+            <button onclick="loginWithSpotify()">Login with Spotify</button>
+        </div>
+        <input type="text" id="search-input">
+        <button onclick="searchSpotify()">Search</button>
+
+        <ul id="song-list"></ul>
+
+        <header>
+            <div class="menu_side">
+                
+                <h1>Your Favorite Playlist</h1>
+                <div class="playlist">
+                    <h4><span></span><i class="bi bi-music-note-beamed"></i> Playlist</h4>
+                    <h4><span></span><i class="bi bi-music-note-beamed"></i> Recently Played</h4>
+                    <h4><span></span><i class="bi bi-music-note-beamed"></i> Recommendation</h4>
+                
+                </div>
+            </div>
+            <div class="song_side"></div>
+            <div class="master_play"></div>
+        </header>
+        <script src="app.js"></script>
+    </body>
+</html>
