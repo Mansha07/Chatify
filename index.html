@@ -1,35 +1,116 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-COmpatible" content="IE-edge">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+        <title>Chatify - Your favourite music is here</title>
         <link rel="stylesheet" href="style.css">
-        <title>Chatify: Video chat while listening to your favourite songs</title>
-    </head>
-    <body>
-        <div class="loginwithspotify">
-            <button onclick="loginWithSpotify()">Login with Spotify</button>
-        </div>
-        <input type="text" id="search-input">
-        <button onclick="searchSpotify()">Search</button>
+        </head>
+<body>
+    <h3>Login with Spotify</h3>
+	<script src="https://sdk.scdn.co/spotify-player.js"></script>
+</head>
+<body>
+	<div id="login">
+		<button onclick="login()">Login with Spotify</button>
+	</div>
 
-        <ul id="song-list"></ul>
+	<script>
+		function login() {
+			var client_id = '536e313b848f41479c43d0d0b99252d3';
+			var redirect_uri = 'https://open.spotify.com/'; // your callback URL
+			var scopes = 'user-read-private user-read-email';
 
-        <header>
-            <div class="menu_side">
-                
-                <h1>Your Favorite Playlist</h1>
-                <div class="playlist">
-                    <h4><span></span><i class="bi bi-music-note-beamed"></i> Playlist</h4>
-                    <h4><span></span><i class="bi bi-music-note-beamed"></i> Recently Played</h4>
-                    <h4><span></span><i class="bi bi-music-note-beamed"></i> Recommendation</h4>
-                
+			// use the Spotify Web API authorization endpoint to authenticate the user
+			window.location.href = 'https://accounts.spotify.com/authorize' +
+				'?response_type=code' +
+				'&client_id=' + encodeURIComponent(client_id) +
+				'&scope=' + encodeURIComponent(scopes) +
+				'&redirect_uri=' + encodeURIComponent(redirect_uri);
+		}
+	</script>
+    <nav>
+
+        <ul>
+            <li class="brand"><img src="logo.png" alt="Spotify"> Spotify</li>
+            <li>Home</li>
+            <li>About</li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="songList">
+            <h1>Best of Chatify: Only for you</h1>
+            <div class="songItemContainer">
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="0" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="1" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="2" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="3" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="4" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="5" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="6" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="7" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="8" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="9" class="far songItemPlay fa-play-circle"></i> </span></span>
                 </div>
             </div>
-            <div class="song_side"></div>
-            <div class="master_play"></div>
-        </header>
-        <script src="app.js"></script>
-    </body>
+        </div>
+        <div class="songBanner"></div>
+    </div>
+
+    <div class="bottom">
+        <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100">
+        <div class="icons">
+            <!-- fontawesome icons -->
+            <i class="fas fa-3x fa-step-backward" id="previous"></i>
+            <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
+            <i class="fas fa-3x fa-step-forward" id="next"></i> 
+        </div>
+        <div class="songInfo">
+            <img src="playing.gif" width="42px" alt="" id="gif"> <span id="masterSongName">Warriyo - Mortals [NCS Release]</span>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/26504e4a1f.js" crossorigin="anonymous"></script>
+</body>
 </html>
